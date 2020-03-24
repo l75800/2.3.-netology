@@ -13,7 +13,7 @@ public class GenerationUser {
 
 
     public static class Registration {
-        private  Registration() {
+       private Registration() {
         }
 
             public static UserModel generateByDelivery (String Locale){
@@ -21,7 +21,7 @@ public class GenerationUser {
                 FakeValuesService fakeValuesService = new FakeValuesService(new Locale("ru"), new RandomService());
                 String userFullName = join(" ", faker.name().firstName(), faker.name().lastName());
                 String userPhone = fakeValuesService.regexify("(\\+?)[1-9]\\d{10}");
-                String cityPreInput = fakeValuesService.regexify(" ");
+                String cityPreInput = fakeValuesService.regexify("[оамсквт][оаеи]");
                 return new UserModel(userFullName, userPhone,cityPreInput);
 
             }

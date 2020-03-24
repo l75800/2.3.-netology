@@ -25,7 +25,7 @@ class CardDeliveryTest {
     @BeforeEach
     void SetUp () {
         open ("http://localhost:9999");
-        Faker faker = new Faker(new Locale("ru"));
+        userModel = GenerationUser.Registration.generateByDelivery("ru");
     }
 
     @Test
