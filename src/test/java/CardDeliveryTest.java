@@ -30,7 +30,7 @@ class CardDeliveryTest {
 
     @Test
     void shouldRegisterDeliveryTest() {
-        $$("[type=text]").first().setValue(userModel.getCityPreInput());
+        $("[placeholder=Город]").setValue(userModel.getCityPreInput());
         $("span.menu-item__control").click();
         $("[placeholder='Дата встречи']").sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE) );
         String date = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
