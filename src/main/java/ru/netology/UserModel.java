@@ -5,7 +5,8 @@ import lombok.RequiredArgsConstructor;
 
 @Data
 @RequiredArgsConstructor
-public class UserModel {
+public
+class UserModel {
     private final String userFullName;
     private final String userPhone;
     private final String cityPreInput;
