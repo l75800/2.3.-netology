@@ -1,6 +1,9 @@
+import com.codeborne.selenide.logevents.SelenideLogger;
 import com.github.javafaker.Faker;
 import com.github.javafaker.service.FakeValuesService;
 import com.github.javafaker.service.RandomService;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
@@ -23,9 +26,15 @@ class CardDeliveryTest {
     private int plusDays;
 
     @BeforeEach
-    void SetUp () {
+    void setUp () {
         open ("http://localhost:9999");
         userModel = GenerationUser.Registration.generateByDelivery("ru");
+        SelenideLogger.addListener("allure", new AllureSelenide());
+    }
+
+    @AfterAll
+    static void tearDownAll() {
+        SelenideLogger.removeListener("allure");
     }
 
     @Test
